@@ -6,7 +6,7 @@ import './index.css'
 
 // Import images
 import heroImage from '../assets/8b012d4ce7e9c00b24c734d0e09e0948a0461c8e.png'
-import partnerLogo from '../assets/116ef87aa1046c27a148b2842f5ca6739a510628.svg'
+import partnerLogo from '../assets/partner-logo.svg'
 import problemImage from '../assets/dc86915345f0f05208c63617bc8fa527d67024e1.png'
 import model3dImage from '../assets/8430bc40573f46f11031d3bc2f5f7748a94b3246.png'
 import drawingsImage from '../assets/4f2677cdde2ddb11ea63e6f55295f6388c062231.png'
@@ -136,21 +136,22 @@ function App() {
       <section className="partners">
         <div className="container">
           <h2 className="section-title">нас выбирают</h2>
-          <div className="partners-carousel">
-            <div className="partner-card">
-              <img src={partnerLogo} alt="Partner logo" />
-            </div>
-            <div className="partner-card">
-              <img src={partnerLogo} alt="Partner logo" />
-            </div>
-            <div className="partner-card">
-              <img src={partnerLogo} alt="Partner logo" />
-            </div>
-            <div className="partner-card">
-              <img src={partnerLogo} alt="Partner logo" />
-            </div>
-            <div className="partner-card">
-              <img src={partnerLogo} alt="Partner logo" />
+          <div className="partners-carousel-wrapper">
+            <div className="partners-carousel-inner">
+              <div className="partners-carousel">
+                <img src={partnerLogo} alt="Partner logo" className="partner-logo-item" />
+                <img src={partnerLogo} alt="Partner logo" className="partner-logo-item" />
+                <img src={partnerLogo} alt="Partner logo" className="partner-logo-item" />
+                <img src={partnerLogo} alt="Partner logo" className="partner-logo-item" />
+                <img src={partnerLogo} alt="Partner logo" className="partner-logo-item" />
+              </div>
+              <div className="partners-carousel">
+                <img src={partnerLogo} alt="Partner logo" className="partner-logo-item" />
+                <img src={partnerLogo} alt="Partner logo" className="partner-logo-item" />
+                <img src={partnerLogo} alt="Partner logo" className="partner-logo-item" />
+                <img src={partnerLogo} alt="Partner logo" className="partner-logo-item" />
+                <img src={partnerLogo} alt="Partner logo" className="partner-logo-item" />
+              </div>
             </div>
           </div>
         </div>
@@ -178,8 +179,15 @@ function App() {
       {/* What We Offer Section */}
       <section className="what-we-offer">
         <div className="container">
-          <h2 className="section-title white">Мы предлагаем</h2>
-          <p className="section-subtitle white">— Не способ заработка, а способ экономии ресурсов вашей компании</p>
+          <div className="what-we-offer-header">
+            <div className="what-we-offer-title-wrapper">
+              <h2 className="section-title white">МЫ ПРЕДЛАГАЕМ</h2>
+              <p className="section-subtitle white">— Не способ заработка, а способ экономии ресурсов вашей компании</p>
+            </div>
+            <div className="what-we-offer-icon">
+              {/* Icon placeholder - можно добавить SVG иконку */}
+            </div>
+          </div>
           <div className="offers-grid">
             <div className="offer-card">
               <h3>Сроки</h3>

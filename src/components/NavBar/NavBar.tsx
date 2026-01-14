@@ -1,5 +1,5 @@
 import { Menu } from "lucide-react";
-import { Dispatch, SetStateAction, useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link as ReactRouterLink } from "react-router-dom";
 import {
   Sheet,
@@ -36,29 +36,49 @@ export default function NavBar({
   navigationItems: NavigationItem[];
 }) {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isOverDark, setIsOverDark] = useState(false);
+  const headerRef = useRef(null);
 
   useEffect(() => {
     const throttledHandler = throttleWithTrailingInvocation(() => {
       setIsScrolled(window.scrollY > 0);
+
+      const header = headerRef.current as HTMLElement | null;
+      if (!header) {
+        setIsOverDark(false);
+        return;
+      }
+
+      const rect = header.getBoundingClientRect();
+      const probeY = Math.min(window.innerHeight - 1, rect.bottom + 4);
+      const probeX = Math.min(window.innerWidth - 1, Math.max(1, window.innerWidth / 2));
+      const elements = document.elementsFromPoint(probeX, probeY);
+      const overDark = elements.some((el) => el.closest?.(".dark-section"));
+      setIsOverDark(overDark);
     }, 50);
 
     window.addEventListener("scroll", throttledHandler);
+    window.addEventListener("resize", throttledHandler);
+    throttledHandler();
 
     return () => {
       window.removeEventListener("scroll", throttledHandler);
+      window.removeEventListener("resize", throttledHandler);
       throttledHandler.cancel();
     };
   }, []);
 
   return (
     <header
+        ref={headerRef}
         className={cn(
           "sticky top-0 z-50 transition-all duration-300",
           isScrolled && "top-4",
         )}
       >
         <div
-          className={cn("transition-all duration-300", {
+          className={cn("transition-all duration-300 nav-surface", {
+            "nav-surface-on-dark": isOverDark,
             "bg-background/90 border-border mx-4 rounded-full border pr-2 shadow-lg backdrop-blur-lg md:mx-20 lg:pr-0":
               isScrolled,
             "bg-background/80 border-border mx-0 border-b backdrop-blur-lg":
@@ -179,7 +199,7 @@ function NavBarMobileMenu({
 
 function renderNavigationItems(
   navigationItems: NavigationItem[],
-  setMobileMenuOpen?: Dispatch<SetStateAction<boolean>>,
+  setMobileMenuOpen?: (value: boolean) => void,
 ) {
   const menuStyles = cn("nav-menu-item", {
     "nav-menu-item-mobile": !!setMobileMenuOpen,

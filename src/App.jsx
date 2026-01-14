@@ -177,7 +177,7 @@ function App() {
       </section>
 
       {/* What We Offer Section */}
-      <section className="what-we-offer">
+      <section className="what-we-offer dark-section">
         <div className="container">
           <div className="what-we-offer-header">
             <div className="what-we-offer-title-wrapper">
@@ -214,7 +214,7 @@ function App() {
       </section>
 
       {/* Problems Section */}
-      <section className="problems">
+      <section className="problems dark-section">
         <div className="container">
           <h2 className="section-title white">Проектирование съедает время, деньги и скорость вывода продукта</h2>
           <p className="section-description white">
@@ -242,14 +242,11 @@ function App() {
               <p>CAD-системы требуют глубоких навыков и не адаптированы под конкретный бизнес-процесс</p>
             </div>
           </div>
-          <div className="problem-image">
-            <img src={problemImage} alt="Problem illustration" />
-          </div>
         </div>
       </section>
 
       {/* Project Package Section */}
-      <section className="project-package">
+      <section className="project-package dark-section">
         <div className="container">
           <h2 className="section-title white">Готовый проектный пакет: от идеи до техпроизводства</h2>
           <p className="section-description white">

@@ -389,6 +389,16 @@ img {
     color: var(--secondary-color);
 }
 
+.nav-surface {
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.nav-surface-on-dark {
+    background-color: rgba(255, 255, 255, 0.98) !important;
+    border-color: rgba(0, 0, 0, 0.08) !important;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+}
+
 .what-we-offer .section-title.white {
     color: #F8F7F3;
     font-family: "TT Travels Next Trial Variable", sans-serif;
@@ -506,7 +516,7 @@ img {
 /* What We Offer Section */
 .what-we-offer {
     background: #1E1E1E;
-    padding: 80px 0;
+    padding: 80px 0 0 0;
     border-radius: 126px 126px 0 0;
     margin-top: 60px;
 }
@@ -616,27 +626,86 @@ img {
     position: relative;
 }
 
+.problems .section-title {
+    color: #F8F7F3;
+    font-family: "TT Travels Next Trial Variable", sans-serif;
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 807;
+    line-height: normal;
+    text-transform: uppercase;
+    font-variation-settings: 'wght' 807;
+}
+
+.problems .section-description {
+    color: #F8F7F3;
+    font-family: "Doloman Pavljenko", sans-serif;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+    text-align: left;
+    max-width: 804px;
+    margin-left: 0;
+    margin-right: auto;
+}
+
 .problems-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    display: flex;
+    flex-direction: column;
     gap: 40px;
     margin-top: 40px;
 }
 
 .problem-card {
-    padding: 20px;
+    padding: 20px 0;
+    max-width: 520px;
+}
+
+.problem-card:nth-child(1) {
+    align-self: flex-start;
+    text-align: left;
+}
+
+.problem-card:nth-child(2) {
+    align-self: center;
+    text-align: center;
+}
+
+.problem-card:nth-child(3) {
+    align-self: flex-end;
+    text-align: right;
+}
+
+.problem-card:nth-child(4) {
+    align-self: center;
+    text-align: center;
+}
+
+.problem-card:nth-child(5) {
+    align-self: flex-start;
+    text-align: left;
 }
 
 .problem-card h3 {
+    color: #F8F7F3;
+    font-family: "TT Travels Next Trial Variable", sans-serif;
     font-size: 30px;
-    font-weight: 700;
+    font-style: normal;
+    font-weight: 704;
+    line-height: normal;
     text-transform: uppercase;
     margin-bottom: 20px;
+    font-variation-settings: 'wght' 704;
 }
 
 .problem-card p {
+    color: #F8F7F3;
+    font-family: "Doloman Pavljenko", sans-serif;
     font-size: 30px;
-    line-height: 1.6;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
 }
 
 .problem-image {

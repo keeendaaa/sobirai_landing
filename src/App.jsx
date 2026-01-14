@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from 'react'
 import { Routes, Route } from 'react-router-dom'
-import NavBar, { marketingNavigationItems } from './components/NavBar/NavBar'
+import NavBar from './components/NavBar/NavBar'
+import { marketingNavigationItems } from './components/NavBar/constants'
 import './index.css'
 
 // Import images

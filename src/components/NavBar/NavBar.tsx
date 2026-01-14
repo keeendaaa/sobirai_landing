@@ -9,10 +9,8 @@ import {
   SheetTrigger,
 } from "../ui/sheet";
 import { throttleWithTrailingInvocation } from "../../utils";
-import { useIsLandingPage } from "../../hooks/useIsLandingPage";
 import { cn } from "../../utils";
 import DarkModeSwitcher from "../DarkModeSwitcher";
-import { Announcement } from "./Announcement";
 
 export interface NavigationItem {
   name: string;
@@ -39,7 +37,6 @@ export default function NavBar({
   navigationItems: NavigationItem[];
 }) {
   const [isScrolled, setIsScrolled] = useState(false);
-  const isLandingPage = useIsLandingPage();
 
   useEffect(() => {
     const throttledHandler = throttleWithTrailingInvocation(() => {
@@ -55,9 +52,7 @@ export default function NavBar({
   }, []);
 
   return (
-    <>
-      {isLandingPage && <Announcement />}
-      <header
+    <header
         className={cn(
           "sticky top-0 z-50 transition-all duration-300",
           isScrolled && "top-4",
@@ -96,7 +91,6 @@ export default function NavBar({
                     },
                   )}
                 >
-                  Собе.ru
                 </span>
               </ReactRouterLink>
 
@@ -112,7 +106,6 @@ export default function NavBar({
           </nav>
         </div>
       </header>
-    </>
   );
 }
 

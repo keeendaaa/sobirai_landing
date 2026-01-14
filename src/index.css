@@ -417,11 +417,14 @@ img {
     padding: 20px 0;
     position: relative;
     width: 100%;
+    --logo-width: 329px;
+    --logo-gap: 20px;
+    --logo-count: 5;
 }
 
 .partners-carousel-inner {
     display: flex;
-    gap: 0;
+    gap: var(--logo-gap);
     width: fit-content;
     animation: scroll 30s linear infinite;
     will-change: transform;
@@ -433,7 +436,7 @@ img {
 
 .partners-carousel {
     display: flex;
-    gap: 20px;
+    gap: var(--logo-gap);
     flex-shrink: 0;
 }
 
@@ -442,14 +445,19 @@ img {
         transform: translateX(0);
     }
     100% {
-        transform: translateX(calc(-329px * 5 - 20px * 4));
+        transform: translateX(
+            calc(
+                (var(--logo-width) * var(--logo-count) * -1) -
+                (var(--logo-gap) * var(--logo-count))
+            )
+        );
     }
 }
 
 .partner-logo-item {
-    width: 329px;
+    width: var(--logo-width);
     height: 83px;
-    min-width: 329px;
+    min-width: var(--logo-width);
     flex-shrink: 0;
     display: block;
     border-radius: 23px;
@@ -499,7 +507,7 @@ img {
     color: #1E1E1E;
     text-align: center;
     font-family: "Doloman Pavljenko", sans-serif;
-    font-size: 16px;
+    font-size: 20px;
     font-style: normal;
     font-weight: 300;
     line-height: normal;
@@ -725,6 +733,30 @@ img {
     color: var(--secondary-color);
 }
 
+.project-package .section-title {
+    color: #F8F7F3;
+    font-family: "TT Travels Next Trial Variable", sans-serif;
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 807;
+    line-height: normal;
+    text-transform: uppercase;
+    font-variation-settings: 'wght' 807;
+}
+
+.project-package .section-description {
+    color: #F8F7F3;
+    font-family: "Doloman Pavljenko", sans-serif;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+    text-align: left;
+    margin-left: 0;
+    margin-right: auto;
+    max-width: 980px;
+}
+
 .package-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -733,10 +765,10 @@ img {
 }
 
 .package-card {
-    background: var(--white);
+    background: transparent;
     border-radius: 36px;
     padding: 20px;
-    color: var(--text-color);
+    color: #F8F7F3;
 }
 
 .package-image {
@@ -745,6 +777,7 @@ img {
     border-radius: 36px;
     overflow: hidden;
     margin-bottom: 20px;
+    background: transparent;
 }
 
 .package-image img {
@@ -754,15 +787,25 @@ img {
 }
 
 .package-card h3 {
+    color: #F8F7F3;
+    font-family: "TT Travels Next Trial Variable", sans-serif;
     font-size: 30px;
-    font-weight: 700;
+    font-style: normal;
+    font-weight: 704;
+    line-height: normal;
     text-transform: uppercase;
     margin-bottom: 10px;
     text-align: center;
+    font-variation-settings: 'wght' 704;
 }
 
 .package-card p {
+    color: #F8F7F3;
+    font-family: "Doloman Pavljenko", sans-serif;
     font-size: 30px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
     text-align: center;
 }
 
@@ -793,6 +836,31 @@ img {
     border-radius: 0 0 126px 126px;
 }
 
+.adaptation .section-title {
+    color: #1E1E1E;
+    font-family: "TT Travels Next Trial Variable", sans-serif;
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 807;
+    line-height: normal;
+    text-transform: uppercase;
+    text-align: left;
+    margin-left: 0;
+    margin-bottom: 0;
+}
+
+.adaptation .section-description {
+    color: #1E1E1E;
+    font-family: "Doloman Pavljenko", sans-serif;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+    text-align: left;
+    margin-left: 0;
+    margin-right: auto;
+}
+
 .adaptation-steps {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -814,16 +882,24 @@ img {
 }
 
 .step-card p {
+    color: #1E1E1E;
+    font-family: "TT Travels Next Trial Variable", sans-serif;
     font-size: 14px;
-    font-weight: 700;
-    line-height: 1.6;
+    font-style: normal;
+    font-weight: 704;
+    line-height: normal;
+    font-variation-settings: 'wght' 704;
 }
 
 .adaptation-quote {
-    font-size: 36px;
+    color: #1E1E1E;
     text-align: right;
+    font-family: "Doloman Pavljenko", sans-serif;
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
     margin-top: 60px;
-    line-height: 1.4;
 }
 
 /* Contact Form Section */
@@ -832,32 +908,95 @@ img {
     background: var(--white);
 }
 
-.contact-form {
-    max-width: 500px;
+.contact-form-section .section-title {
+    color: #1E1E1E;
+    text-align: center;
+    font-family: "TT Travels Next Trial Variable", sans-serif;
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 807;
+    line-height: normal;
+    text-transform: uppercase;
+    font-variation-settings: 'wght' 807;
+}
+
+.contact-form-card {
+    max-width: 620px;
     margin: 0 auto;
+    border: 2px solid #1E1E1E;
+    border-radius: 36px;
+    padding: 32px 36px;
+}
+
+.contact-form {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 28px;
 }
 
-.contact-form input,
-.contact-form textarea {
-    border: 1px solid var(--primary-color);
-    border-radius: 13px;
-    padding: 15px;
-    font-size: 14px;
+.contact-form .btn-primary {
+    align-self: flex-end;
+}
+
+.contact-form-field {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.contact-form-label {
+    color: #1E1E1E;
+    font-family: "TT Travels Next Trial Variable", sans-serif;
+    font-size: 16px;
+    font-style: normal;
     font-weight: 700;
-    font-family: inherit;
+    line-height: normal;
+    font-variation-settings: 'wght' 700;
 }
 
-.contact-form textarea {
-    border-radius: 31px;
-    resize: vertical;
+.contact-form-input,
+.contact-form-textarea {
+    border: 2px solid #1E1E1E;
+    border-radius: 18px;
+    padding: 16px 18px;
+    font-size: 16px;
+    font-family: "TT Travels Next Trial Variable", sans-serif;
+    font-weight: 400;
+    color: #1E1E1E;
+    background: transparent;
 }
+
+.contact-form-input {
+    height: 52px;
+}
+
+.contact-form-textarea {
+    border-radius: 24px;
+    resize: none;
+    height: 160px;
+}
+
 
 /* Reviews Section */
 .reviews {
     padding: 80px 0;
+}
+
+.reviews .btn-secondary {
+    display: block;
+    margin: 20px auto 0;
+}
+
+.reviews .section-title {
+    color: #1E1E1E;
+    text-align: center;
+    font-family: "TT Travels Next Trial Variable", sans-serif;
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 807;
+    line-height: normal;
+    text-transform: uppercase;
+    font-variation-settings: 'wght' 807;
 }
 
 .reviews-grid {
@@ -894,14 +1033,25 @@ img {
 }
 
 .review-card h4 {
+    color: #1E1E1E;
+    text-align: center;
+    font-family: "TT Travels Next Trial Variable", sans-serif;
     font-size: 14px;
-    font-weight: 700;
+    font-style: normal;
+    font-weight: 704;
+    line-height: normal;
     margin-bottom: 10px;
+    font-variation-settings: 'wght' 704;
 }
 
 .review-card p {
+    color: #1E1E1E;
+    text-align: center;
+    font-family: "Doloman Pavljenko", sans-serif;
     font-size: 14px;
-    line-height: 1.6;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
 }
 
 /* FAQ Section */
@@ -909,9 +1059,26 @@ img {
     padding: 80px 0;
 }
 
-.faq-subtitle {
-    font-size: 30px;
+.faq .section-title {
+    color: #1E1E1E;
     text-align: center;
+    font-family: "TT Travels Next Trial Variable", sans-serif;
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 807;
+    line-height: normal;
+    text-transform: uppercase;
+    font-variation-settings: 'wght' 807;
+}
+
+.faq-subtitle {
+    color: #1E1E1E;
+    text-align: center;
+    font-family: "Doloman Pavljenko", sans-serif;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
     margin-bottom: 40px;
 }
 
@@ -933,9 +1100,14 @@ img {
     align-items: center;
     padding: 20px 30px;
     cursor: pointer;
-    font-weight: 700;
+    color: #1E1E1E;
+    font-family: "TT Travels Next Trial Variable", sans-serif;
     font-size: 14px;
+    font-style: normal;
+    font-weight: 704;
+    line-height: normal;
     transition: background 0.3s;
+    font-variation-settings: 'wght' 704;
 }
 
 .faq-question:hover {
@@ -954,7 +1126,7 @@ img {
 /* Footer */
 .footer {
     background: var(--primary-color);
-    padding: 80px 0 40px;
+    padding: 80px 0 0;
     color: var(--secondary-color);
     position: relative;
     overflow: hidden;
@@ -964,12 +1136,28 @@ img {
     margin-bottom: 60px;
 }
 
+.footer-text {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
 .footer-text h2 {
+    color: #F8F7F3;
+    text-align: left;
+    font-family: "TT Travels Next Trial Variable", sans-serif;
     font-size: 36px;
-    font-weight: 800;
+    font-style: normal;
+    font-weight: 807;
+    line-height: normal;
     text-transform: uppercase;
-    margin-bottom: 20px;
-    line-height: 1.2;
+    margin: 0;
+    font-variation-settings: 'wght' 807;
+}
+
+.footer-text h2 + h2 {
+    margin-top: 8px;
+    margin-left: 0;
 }
 
 .footer-cta {
@@ -1003,25 +1191,40 @@ img {
 }
 
 .footer-column h3 {
+    color: #F8F7F3;
+    font-family: "TT Travels Next Trial Variable", sans-serif;
     font-size: 18px;
-    font-weight: 800;
+    font-style: normal;
+    font-weight: 807;
+    line-height: normal;
     text-transform: uppercase;
     margin-bottom: 15px;
+    font-variation-settings: 'wght' 807;
 }
 
 .footer-column p {
+    color: #F8F7F3;
+    font-family: "Doloman Pavljenko", sans-serif;
     font-size: 30px;
-    line-height: 1.6;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
 }
 
 .footer-logo {
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
     text-align: center;
     opacity: 0.31;
 }
 
 .footer-logo .logo-text-large {
+    display: block;
+    width: 100%;
     font-size: 246px;
     color: var(--secondary-color);
+    letter-spacing: 0.02em;
 }
 
 /* Mobile Menu Toggle */

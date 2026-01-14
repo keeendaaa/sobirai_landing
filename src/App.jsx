@@ -1,4 +1,6 @@
 import { useState, useEffect, useRef } from 'react'
+import gsap from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { Routes, Route } from 'react-router-dom'
 import NavBar from './components/NavBar/NavBar'
 import { marketingNavigationItems } from './components/NavBar/constants'
@@ -16,6 +18,7 @@ import starIcon from '../assets/116ca1a2a0f35485d14207674d745572ef1cccbe.svg'
 function App() {
   const [activeFaq, setActiveFaq] = useState(null)
   const [email, setEmail] = useState('')
+  const appRef = useRef(null)
   const contactFormRef = useRef(null)
   const footerInputRef = useRef(null)
 
@@ -64,33 +67,121 @@ function App() {
   }
 
 
-  // Intersection Observer for animations
+  // GSAP animations
   useEffect(() => {
-    const observerOptions = {
-      threshold: 0.1,
-      rootMargin: '0px 0px -50px 0px'
-    }
+    gsap.registerPlugin(ScrollTrigger)
 
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.style.opacity = '1'
-          entry.target.style.transform = 'translateY(0)'
+    const ctx = gsap.context(() => {
+      gsap.from('.hero-logo-container', {
+        y: -20,
+        opacity: 0,
+        duration: 0.9,
+        ease: 'back.out(1.4)'
+      })
+
+      gsap.from('.hero-subtitle p', {
+        y: 40,
+        opacity: 0,
+        duration: 0.9,
+        ease: 'power3.out',
+        stagger: 0.12
+      })
+
+      gsap.from('.hero .btn-primary', {
+        y: 30,
+        opacity: 0,
+        scale: 0.95,
+        duration: 0.8,
+        ease: 'power3.out',
+        delay: 0.2
+      })
+
+      gsap.from('.hero-image img', {
+        y: 50,
+        opacity: 0,
+        scale: 0.9,
+        duration: 1,
+        ease: 'power3.out'
+      })
+
+      gsap.to('.hero-image img', {
+        yPercent: 6,
+        ease: 'none',
+        scrollTrigger: {
+          trigger: '.hero',
+          start: 'top top',
+          end: 'bottom top',
+          scrub: true
         }
       })
-    }, observerOptions)
 
-    const sections = document.querySelectorAll('section')
-    sections.forEach(section => {
-      section.style.opacity = '0'
-      section.style.transform = 'translateY(20px)'
-      section.style.transition = 'opacity 0.6s ease, transform 0.6s ease'
-      observer.observe(section)
-    })
+      gsap.utils.toArray('.section-title').forEach((title) => {
+        gsap.from(title, {
+          scrollTrigger: {
+            trigger: title,
+            start: 'top 85%'
+          },
+          y: 30,
+          opacity: 0,
+          duration: 0.8,
+          ease: 'power3.out'
+        })
+      })
 
-    return () => {
-      sections.forEach(section => observer.unobserve(section))
-    }
+      gsap.utils.toArray('.section-description').forEach((desc) => {
+        gsap.from(desc, {
+          scrollTrigger: {
+            trigger: desc,
+            start: 'top 85%'
+          },
+          y: 20,
+          opacity: 0,
+          duration: 0.7,
+          ease: 'power3.out'
+        })
+      })
+
+      gsap.utils
+        .toArray('.offer-card, .problem-card, .package-card, .step-card, .review-card, .faq-item')
+        .forEach((card) => {
+          gsap.from(card, {
+            scrollTrigger: {
+              trigger: card,
+              start: 'top 85%'
+            },
+            y: 30,
+            opacity: 0,
+            scale: 0.98,
+            duration: 0.8,
+            ease: 'power3.out'
+          })
+        })
+
+      gsap.from('.partners-carousel-inner', {
+        opacity: 0,
+        scale: 0.98,
+        duration: 0.9,
+        ease: 'power3.out',
+        scrollTrigger: {
+          trigger: '.partners',
+          start: 'top 85%'
+        }
+      })
+
+      gsap.from('.footer-text h2', {
+        scrollTrigger: {
+          trigger: '.footer',
+          start: 'top 85%'
+        },
+        y: 20,
+        opacity: 0,
+        duration: 0.8,
+        ease: 'power3.out',
+        stagger: 0.15
+      })
+    }, appRef)
+
+    return () => ctx.revert()
   }, [])
 
   // Handle button clicks to scroll to contact form
@@ -105,7 +196,7 @@ function App() {
   }
 
   return (
-    <div className="App">
+    <div className="App" ref={appRef}>
       <NavBar navigationItems={marketingNavigationItems} />
 
       {/* Logo Section - Centered */}
@@ -275,10 +366,6 @@ function App() {
               <p>Спецификация деталей</p>
             </div>
           </div>
-          <div className="package-features">
-            <h3>Веб-интерфейс+API</h3>
-            <p>+интеграции с производственными системами</p>
-          </div>
         </div>
       </section>
 
@@ -314,12 +401,23 @@ function App() {
       <section className="contact-form-section" ref={contactFormRef}>
         <div className="container">
           <h2 className="section-title">оставьте заявку</h2>
-          <form className="contact-form" onSubmit={handleContactSubmit}>
-            <input type="text" name="name" placeholder="ФИО" required />
-            <input type="tel" name="contact" placeholder="Номер телефона/Email" required />
-            <textarea name="comment" placeholder="Комментарий к заявке" rows="4"></textarea>
-            <button type="submit" className="btn-primary">Отправить</button>
-          </form>
+          <div className="contact-form-card">
+            <form className="contact-form" onSubmit={handleContactSubmit}>
+              <div className="contact-form-field">
+                <label className="contact-form-label" htmlFor="contact-name">ФИО</label>
+                <input id="contact-name" className="contact-form-input" type="text" name="name" placeholder="" required />
+              </div>
+              <div className="contact-form-field">
+                <label className="contact-form-label" htmlFor="contact-info">Номер телефона/Email</label>
+                <input id="contact-info" className="contact-form-input" type="tel" name="contact" placeholder="" required />
+              </div>
+              <div className="contact-form-field">
+                <label className="contact-form-label" htmlFor="contact-comment">Комментарий к заявке</label>
+                <textarea id="contact-comment" className="contact-form-textarea" name="comment" rows="6"></textarea>
+              </div>
+              <button type="submit" className="btn-primary">Отправить</button>
+            </form>
+          </div>
         </div>
       </section>
 
@@ -389,8 +487,8 @@ function App() {
         <div className="container">
           <div className="footer-content">
             <div className="footer-text">
-              <h2>Не жди момента</h2>
-              <h2>— воплоти свою идею в жизнь <span className="gradient-text">сейчас</span></h2>
+              <h2>Не жди момента — воплоти</h2>
+              <h2>свою идею в жизнь <span className="gradient-text">сейчас</span></h2>
             </div>
             <form className="footer-cta" onSubmit={handleFooterSubmit}>
               <input 
@@ -419,7 +517,7 @@ function App() {
             </div>
           </div>
           <div className="footer-logo">
-            <span className="logo-text-large">собе.ru</span>
+            <span className="logo-text-large">SOBIRAI</span>
           </div>
         </div>
       </footer>

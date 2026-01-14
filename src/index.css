@@ -34,6 +34,10 @@
     --popover: #1e1e1e;
     --popover-foreground: #f8f7f3;
   }
+
+  body {
+    @apply bg-background text-foreground;
+  }
 }
 
 /* Reset and Base Styles */

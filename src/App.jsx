@@ -108,13 +108,15 @@ function App() {
     <div className="App">
       <NavBar navigationItems={marketingNavigationItems} />
 
+      {/* Logo Section - Centered */}
+      <div className="hero-logo-container">
+        <span className="logo-text-large">собе.<span className="logo-gradient">ru</span></span>
+      </div>
+
       {/* Hero Section */}
       <section className="hero" id="home">
         <div className="container">
           <div className="hero-content">
-            <h1 className="hero-title">
-              <span className="logo-text-large">собе.<span className="logo-gradient">ru</span></span>
-            </h1>
             <div className="hero-subtitle">
               <p>Проектная документация</p>
               <p>и <span className="gradient-text">3D</span>-модель</p>

@@ -2,6 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
+/* TT Travels Next Trial Variable Font */
+/* Note: You need to download and host the font file locally or use a CDN */
+/* For now, using a fallback approach - you should replace with actual font file */
+@font-face {
+  font-family: 'TT Travels Next Trial Variable';
+  src: local('TT Travels Next Trial Variable'),
+       url('https://fonts.gstatic.com/s/tttravelsnext/v1/TT-Travels-Next-Trial-Variable.woff2') format('woff2-variations');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
 @layer base {
   :root {
     --background: #ffffff;
@@ -70,8 +82,30 @@ body {
     padding: 0 var(--container-padding);
 }
 
-/* Gradient Text */
-.logo-gradient,
+/* Gradient Text - base styles, size will be inherited from parent */
+.logo-gradient {
+    background: radial-gradient(50% 50% at 50% 50%, #29AD1D 50%, #6F6A58 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-family: "TT Travels Next Trial Variable", sans-serif;
+    font-style: normal;
+    font-weight: 807;
+    line-height: normal;
+    text-transform: uppercase;
+    font-variation-settings: 'wght' 807;
+}
+
+/* Size for gradient in navbar (small logo) */
+.logo-text .logo-gradient {
+    font-size: 12px;
+}
+
+/* Size inheritance for gradient in large logo */
+.logo-text-large .logo-gradient {
+    font-size: inherit;
+}
+
 .gradient-text {
     background: linear-gradient(135deg, #29ad1d 0%, #4d8d3d 50%, #6e6e6e 100%);
     -webkit-background-clip: text;
@@ -97,17 +131,31 @@ body {
     gap: 20px;
 }
 
+/* Logo styles for NavBar (small) */
 .logo-text {
-    font-size: 24px;
-    font-weight: 800;
+    color: #1E1E1E;
+    text-align: center;
+    font-family: "TT Travels Next Trial Variable", sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 807;
+    line-height: normal;
     text-transform: uppercase;
-    color: var(--text-color);
+    font-variation-settings: 'wght' 807;
 }
 
+/* Logo styles for Hero and Footer (large) */
 .logo-text-large {
+    font-family: "TT Travels Next Trial Variable", sans-serif;
     font-size: 48px;
-    font-weight: 800;
+    font-style: normal;
+    font-weight: 807;
+    line-height: normal;
     text-transform: uppercase;
+    font-variation-settings: 'wght' 807;
+    color: #1E1E1E;
+    display: inline-block;
+    text-align: center;
 }
 
 .nav-menu {
@@ -117,17 +165,57 @@ body {
     flex-wrap: wrap;
 }
 
-.nav-menu a {
-    text-decoration: none;
-    color: var(--text-color);
-    font-weight: 600;
-    text-transform: capitalize;
+/* Navigation menu items (Продукт, Подписки, Кейсы) */
+.nav-menu-item {
+    color: #1E1E1E;
+    text-align: center;
+    font-family: "TT Travels Next Trial Variable", sans-serif;
     font-size: 14px;
+    font-style: normal;
+    font-weight: 597;
+    line-height: normal;
+    text-transform: capitalize;
+    text-decoration: none;
     transition: color 0.3s;
+    font-variation-settings: 'wght' 597;
 }
 
-.nav-menu a:hover {
+.nav-menu-item:hover {
     color: var(--accent-color);
+}
+
+.nav-menu-item-mobile {
+    display: block;
+    padding: 12px 16px;
+    border-radius: 8px;
+    transition: background-color 0.3s;
+}
+
+.nav-menu-item-mobile:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+/* Contact button (Связаться с нами) */
+.nav-contact-btn {
+    color: #F8F7F3;
+    text-align: center;
+    font-family: "TT Travels Next Trial Variable", sans-serif;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 704;
+    line-height: normal;
+    border-radius: 14px;
+    background: radial-gradient(50% 50% at 50% 50%, #29AD1D 0%, #29AD1D 20%, #4A4A4A 100%);
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: transform 0.2s, opacity 0.2s;
+    font-variation-settings: 'wght' 704;
+}
+
+.nav-contact-btn:hover {
+    transform: translateY(-1px);
+    opacity: 0.9;
 }
 
 .btn-contact {
@@ -157,6 +245,9 @@ body {
     font-size: 14px;
     cursor: pointer;
     transition: transform 0.2s, box-shadow 0.2s;
+    display: inline-block;
+    width: fit-content;
+    white-space: nowrap;
 }
 
 .btn-primary:hover {
@@ -181,9 +272,20 @@ body {
     color: var(--secondary-color);
 }
 
+/* Hero Logo Container - Centered */
+.hero-logo-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 0 0 0;
+    position: relative;
+    z-index: 1;
+}
+
 /* Hero Section */
 .hero {
-    padding: 60px 0;
+    padding: 0 0 60px 0;
     min-height: 80vh;
     display: flex;
     align-items: center;
@@ -194,12 +296,21 @@ body {
     grid-template-columns: 1fr 1fr;
     gap: 40px;
     align-items: center;
+    padding-left: 90px;
+    padding-right: 0;
 }
 
 .hero-content {
     display: flex;
     flex-direction: column;
-    gap: 30px;
+    gap: 120px;
+    flex: 1;
+    min-width: 0;
+}
+
+.hero-content .btn-primary {
+    margin-top: auto;
+    align-self: flex-start;
 }
 
 .hero-title {
@@ -820,7 +931,7 @@ img {
 
 @media (max-width: 480px) {
     .hero {
-        padding: 40px 0;
+        padding: 0 0 40px 0;
         min-height: auto;
     }
 

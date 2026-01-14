@@ -1,4 +1,4 @@
-import { LogIn, Menu } from "lucide-react";
+import { Menu } from "lucide-react";
 import { Dispatch, SetStateAction, useEffect, useState } from "react";
 import { Link as ReactRouterLink } from "react-router-dom";
 import {
@@ -10,7 +10,6 @@ import {
 } from "../ui/sheet";
 import { throttleWithTrailingInvocation } from "../../utils";
 import { cn } from "../../utils";
-import DarkModeSwitcher from "../DarkModeSwitcher";
 
 export interface NavigationItem {
   name: string;
@@ -21,8 +20,8 @@ export interface NavigationItem {
 const NavLogo = ({ isScrolled }: { isScrolled: boolean }) => (
   <div
     className={cn("transition-all duration-500 flex items-center", {
-      "size-8": !isScrolled,
-      "size-7": isScrolled,
+      "size-12": !isScrolled,
+      "size-10": isScrolled,
     })}
   >
     <span className="logo-text">
@@ -94,7 +93,7 @@ export default function NavBar({
                 </span>
               </ReactRouterLink>
 
-              <ul className="ml-4 hidden items-center gap-6 lg:flex">
+              <ul className="ml-16 hidden items-center gap-6 lg:flex">
                 {renderNavigationItems(navigationItems)}
               </ul>
             </div>
@@ -112,30 +111,9 @@ export default function NavBar({
 function NavBarDesktopActions({ isScrolled }: { isScrolled: boolean }) {
   return (
     <div className="hidden items-center justify-end gap-3 lg:flex lg:flex-1">
-      <ul className="flex items-center justify-center gap-2 sm:gap-4">
-        <DarkModeSwitcher />
-      </ul>
-      <ReactRouterLink
-        to="#contact"
-        className={cn(
-          "ml-3 font-semibold leading-6 transition-all duration-300",
-          {
-            "text-sm": !isScrolled,
-            "text-xs": isScrolled,
-          },
-        )}
-      >
-        <div className="text-foreground hover:text-primary flex items-center transition-colors duration-300 ease-in-out">
-          Связаться с нами{" "}
-          <LogIn
-            size={isScrolled ? "1rem" : "1.1rem"}
-            className={cn("transition-all duration-300", {
-              "ml-1 mt-[0.1rem]": !isScrolled,
-              "ml-1": isScrolled,
-            })}
-          />
-        </div>
-      </ReactRouterLink>
+      <button className="nav-contact-btn">
+        Связаться с нами
+      </button>
     </div>
   );
 }
@@ -184,14 +162,12 @@ function NavBarMobileMenu({
                 {renderNavigationItems(navigationItems, setMobileMenuOpen)}
               </ul>
               <div className="py-6">
-                <ReactRouterLink to="#contact" onClick={() => setMobileMenuOpen(false)}>
-                  <div className="text-foreground hover:text-primary flex items-center justify-end transition-colors duration-300 ease-in-out">
-                    Связаться с нами <LogIn size="1.1rem" className="ml-1" />
-                  </div>
-                </ReactRouterLink>
-              </div>
-              <div className="py-6">
-                <DarkModeSwitcher />
+                <button 
+                  className="nav-contact-btn"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  Связаться с нами
+                </button>
               </div>
             </div>
           </div>
@@ -205,11 +181,8 @@ function renderNavigationItems(
   navigationItems: NavigationItem[],
   setMobileMenuOpen?: Dispatch<SetStateAction<boolean>>,
 ) {
-  const menuStyles = cn({
-    "block rounded-lg px-3 py-2 text-sm font-medium leading-7 text-foreground hover:bg-accent hover:text-accent-foreground transition-colors":
-      !!setMobileMenuOpen,
-    "text-sm font-normal leading-6 text-foreground duration-300 ease-in-out hover:text-primary transition-colors":
-      !setMobileMenuOpen,
+  const menuStyles = cn("nav-menu-item", {
+    "nav-menu-item-mobile": !!setMobileMenuOpen,
   });
 
   return navigationItems.map((item) => {

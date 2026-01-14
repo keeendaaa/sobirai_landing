@@ -1249,6 +1249,45 @@ img {
         text-align: center;
     }
 
+    .what-we-offer .container {
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+
+    .what-we-offer-header {
+        position: static;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+    }
+
+    .what-we-offer-title-wrapper {
+        padding-right: 0;
+    }
+
+    .what-we-offer-icon {
+        position: static;
+        width: 220px;
+        height: auto;
+        margin-left: 0;
+    }
+
+    .offers-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .offer-card,
+    .offer-card.wide {
+        grid-column: span 1;
+    }
+
+    .problem-card {
+        max-width: 100%;
+        align-self: stretch;
+        text-align: left;
+    }
+
     .footer-logo .logo-text-large {
         font-size: 120px;
     }
@@ -1318,6 +1357,24 @@ img {
 
     .adaptation-quote {
         font-size: 24px;
+    }
+
+    .offers-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .offer-card,
+    .offer-card.wide {
+        grid-column: span 1;
+    }
+
+    .package-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-text {
+        align-items: flex-start;
+        white-space: normal;
     }
 
     .footer-text h2 {
@@ -1391,6 +1448,14 @@ img {
 
     .partner-card {
         min-width: 200px;
+    }
+
+    .contact-form-card {
+        padding: 24px 20px;
+    }
+
+    .contact-form-textarea {
+        height: 140px;
     }
 }
 

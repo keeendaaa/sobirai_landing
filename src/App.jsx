@@ -185,7 +185,7 @@ function App() {
               <p className="section-subtitle white">— Не способ заработка, а способ экономии ресурсов вашей компании</p>
             </div>
             <div className="what-we-offer-icon">
-              {/* Icon placeholder - можно добавить SVG иконку */}
+              <img src={problemImage} alt="Icon" />
             </div>
           </div>
           <div className="offers-grid">

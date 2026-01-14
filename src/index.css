@@ -391,8 +391,15 @@ img {
 
 .what-we-offer .section-title.white {
     color: #F8F7F3;
+    font-family: "TT Travels Next Trial Variable", sans-serif;
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 807;
+    line-height: normal;
+    text-transform: uppercase;
     text-align: left;
     margin-bottom: 0;
+    font-variation-settings: 'wght' 807;
 }
 
 .partners-carousel-wrapper {
@@ -504,23 +511,43 @@ img {
     margin-top: 60px;
 }
 
+.what-we-offer .container {
+    padding-left: 60px;
+    padding-right: 60px;
+}
+
 .what-we-offer-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
+    position: relative;
     margin-bottom: 40px;
+    --offer-icon-width: 350px;
 }
 
 .what-we-offer-title-wrapper {
     flex: 1;
+    padding-left: 5px;
+    padding-right: calc(var(--offer-icon-width) + 40px);
+    display: flex;
+    flex-direction: column;
 }
 
 .what-we-offer-icon {
-    width: 100px;
-    height: 100px;
-    flex-shrink: 0;
-    margin-left: 40px;
-    /* Placeholder for icon - можно добавить SVG */
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: var(--offer-icon-width);
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.what-we-offer-icon img {
+    height: 100%;
+    width: auto;
+    max-width: 100%;
+    display: block;
+    object-fit: contain;
+    transform: scaleX(-1);
 }
 
 .section-subtitle {
@@ -530,9 +557,18 @@ img {
     margin-top: 10px;
 }
 
+.what-we-offer .section-subtitle {
+    color: #F8F7F3;
+    font-family: "Doloman Pavljenko", sans-serif;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+}
+
 .offers-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(6, 1fr);
     gap: 30px;
     margin-top: 40px;
 }
@@ -543,21 +579,33 @@ img {
     padding: 30px;
     color: #F8F7F3;
     background: transparent;
-}
-
-.offer-card.wide {
     grid-column: span 2;
 }
 
+.offer-card.wide {
+    grid-column: span 3;
+}
+
 .offer-card h3 {
+    color: #F8F7F3;
+    text-align: center;
+    font-family: "TT Travels Next Trial Variable", sans-serif;
     font-size: 30px;
-    font-weight: 700;
+    font-style: normal;
+    font-weight: 704;
+    line-height: normal;
     margin-bottom: 15px;
+    font-variation-settings: 'wght' 704;
 }
 
 .offer-card p {
+    color: #F8F7F3;
+    text-align: center;
+    font-family: "Doloman Pavljenko", sans-serif;
     font-size: 30px;
-    line-height: 1.4;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
 }
 
 /* Problems Section */
@@ -924,9 +972,6 @@ img {
         text-align: center;
     }
 
-    .offer-card.wide {
-        grid-column: span 1;
-    }
 
     .adaptation-quote {
         text-align: center;

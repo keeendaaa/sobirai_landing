@@ -1,5 +1,4 @@
-import { Menu } from "lucide-react";
-import { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Link as ReactRouterLink } from "react-router-dom";
 import {
   Sheet,
@@ -158,16 +157,27 @@ function NavBarMobileMenu({
             )}
           >
             <span className="sr-only">Open main menu</span>
-            <Menu
-              className={cn("transition-all duration-300", {
-                "size-8 p-1": !isScrolled,
-                "size-6 p-0.5": isScrolled,
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              className={cn("burger-icon transition-all duration-300", {
+                "burger-icon--small": isScrolled,
+                "burger-icon--open": mobileMenuOpen,
               })}
               aria-hidden="true"
-            />
+            >
+              <line className="burger-line burger-line-1" x1="4" x2="20" y1="6" y2="6" />
+              <line className="burger-line burger-line-2" x1="4" x2="20" y1="12" y2="12" />
+              <line className="burger-line burger-line-3" x1="4" x2="20" y1="18" y2="18" />
+            </svg>
           </button>
         </SheetTrigger>
-        <SheetContent side="right" className="w-[300px] sm:w-[400px]">
+        <SheetContent side="right" className="w-[300px] sm:w-[400px] mobile-sheet">
           <SheetHeader>
             <SheetTitle className="flex items-center">
               <ReactRouterLink to="/" onClick={() => setMobileMenuOpen(false)}>
@@ -178,7 +188,7 @@ function NavBarMobileMenu({
           </SheetHeader>
           <div className="mt-6 flow-root">
             <div className="divide-border -my-6 divide-y">
-              <ul className="space-y-2 py-6">
+              <ul className="space-y-2 py-6 mobile-menu-list">
                 {renderNavigationItems(navigationItems, setMobileMenuOpen)}
               </ul>
               <div className="py-6">

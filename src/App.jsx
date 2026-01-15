@@ -513,7 +513,8 @@ function App() {
             </div>
             <div className="footer-column">
               <h3>контактная информация</h3>
-              <p>пупупупупупупу</p>
+              <p>business@sobirai.tech</p>
+              <p>tg: @skkAteAndDestTtroy</p>
             </div>
           </div>
           <div className="footer-logo">

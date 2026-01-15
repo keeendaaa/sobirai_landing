@@ -76,6 +76,10 @@ body {
     overflow-x: hidden;
 }
 
+html {
+    overflow-x: hidden;
+}
+
 .container {
     max-width: 1440px;
     margin: 0 auto;
@@ -485,6 +489,8 @@ img {
     font-weight: 800;
     text-transform: uppercase;
     margin-bottom: 40px;
+    overflow-wrap: anywhere;
+    word-break: break-word;
 }
 
 .section-title.white {
@@ -603,6 +609,8 @@ img {
     margin: 40px auto;
     text-align: center;
     line-height: 1.8;
+    overflow-wrap: anywhere;
+    word-break: break-word;
 }
 
 .how-it-works .section-description {
@@ -675,6 +683,8 @@ img {
     margin-bottom: 40px;
     color: #F8F7F3;
     margin-top: 10px;
+    overflow-wrap: anywhere;
+    word-break: break-word;
 }
 
 .what-we-offer .section-subtitle {
@@ -734,6 +744,7 @@ img {
     padding: 80px 0;
     color: var(--secondary-color);
     position: relative;
+    overflow-x: hidden;
 }
 
 .problems .section-title {
@@ -765,11 +776,14 @@ img {
     flex-direction: column;
     gap: 40px;
     margin-top: 40px;
+    width: 100%;
 }
 
 .problem-card {
     padding: 20px 0;
     max-width: 520px;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .problem-card:nth-child(1) {
@@ -1314,9 +1328,9 @@ img {
 }
 
 .footer-logo {
-    width: 100vw;
-    margin-left: calc(50% - 50vw);
-    margin-right: calc(50% - 50vw);
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
     text-align: center;
     opacity: 0.31;
 }
@@ -1451,6 +1465,13 @@ img {
         font-size: 20px;
     }
 
+    .problems .section-title,
+    .problems .section-description {
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
     .offer-card h3,
     .problem-card h3,
     .package-card h3 {
@@ -1557,9 +1578,9 @@ img {
 
     .hero-image {
         order: 2;
-        width: 100vw;
-        margin-left: calc(50% - 50vw);
-        margin-right: calc(50% - 50vw);
+        width: 100%;
+        margin-left: 0;
+        margin-right: 0;
     }
 
     .hero-image img {

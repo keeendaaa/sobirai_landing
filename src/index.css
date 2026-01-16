@@ -6,7 +6,7 @@
 @font-face {
   font-family: 'TT Travels Next Trial Variable';
   src: local('TT Travels Next Trial Variable'),
-       url('/fonts/TT-Travels-Next-Trial-Variable.woff2') format('woff2-variations');
+       url('/fonts/TT%20Travels%20Next%20Trial%20Variable.ttf') format('truetype-variations');
   font-weight: 100 900;
   font-style: normal;
   font-display: swap;
@@ -16,7 +16,7 @@
   font-family: 'Doloman Pavljenko';
   src: local('Doloman Pavljenko'),
        url('/fonts/Doloman-Pavljenko.otf') format('opentype');
-  font-weight: 300 800;
+  font-weight: 300;
   font-style: normal;
   font-display: swap;
 }
@@ -81,6 +81,10 @@ body {
     color: var(--text-color);
     line-height: 1.6;
     overflow-x: hidden;
+}
+
+.App {
+    padding-top: 90px;
 }
 
 html {
@@ -167,6 +171,10 @@ html {
     color: #1E1E1E;
     display: inline-block;
     text-align: center;
+}
+
+.logo-ai {
+    color: var(--accent-color);
 }
 
 .nav-menu {
@@ -964,7 +972,7 @@ img {
     font-family: "TT Travels Next Trial Variable", sans-serif;
     font-size: 36px;
     font-style: normal;
-    font-weight: 807;
+    font-weight: 700;
     line-height: normal;
     text-transform: uppercase;
     text-align: left;
@@ -1072,9 +1080,9 @@ img {
     font-family: "TT Travels Next Trial Variable", sans-serif;
     font-size: 16px;
     font-style: normal;
-    font-weight: 700;
+    font-weight: 807;
     line-height: normal;
-    font-variation-settings: 'wght' 700;
+    font-variation-settings: 'wght' 807;
 }
 
 .contact-form-input,

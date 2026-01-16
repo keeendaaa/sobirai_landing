@@ -24,7 +24,7 @@ const NavLogo = ({ isScrolled }: { isScrolled: boolean }) => (
     })}
   >
     <span className="logo-text">
-      собер.<span className="logo-gradient">ru</span>
+      sobir<span className="logo-ai">ai</span>
     </span>
   </div>
 );
@@ -68,10 +68,10 @@ export default function NavBar({
   }, []);
 
   return (
-    <header
+      <header
         ref={headerRef}
         className={cn(
-          "sticky top-0 z-50 transition-all duration-300",
+          "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
           isScrolled && "top-4",
         )}
       >
@@ -181,7 +181,7 @@ function NavBarMobileMenu({
           <SheetHeader>
             <SheetTitle className="flex items-center">
               <ReactRouterLink to="/" onClick={() => setMobileMenuOpen(false)}>
-                <span className="sr-only">Собе.ru</span>
+                <span className="sr-only">sobirAI</span>
                 <NavLogo isScrolled={false} />
               </ReactRouterLink>
             </SheetTitle>

@@ -11,8 +11,8 @@ import heroImage from '../assets/8b012d4ce7e9c00b24c734d0e09e0948a0461c8e.png'
 import partnerLogo from '../assets/partner-logo.svg'
 import problemImage from '../assets/dc86915345f0f05208c63617bc8fa527d67024e1.png'
 import model3dImage from '../assets/8430bc40573f46f11031d3bc2f5f7748a94b3246.png'
-import drawingsImage from '../assets/4f2677cdde2ddb11ea63e6f55295f6388c062231.png'
-import bomImage from '../assets/dc86915345f0f05208c63617bc8fa527d67024e1.png'
+import drawingsImage from '../assets/2026-01-16-10.09.28.jpg'
+import bomImage from '../assets/2026-01-16-10.08.56.jpg'
 import starIcon from '../assets/116ca1a2a0f35485d14207674d745572ef1cccbe.svg'
 
 function App() {
@@ -200,9 +200,9 @@ function App() {
       <NavBar navigationItems={marketingNavigationItems} />
 
       {/* Logo Section - Centered */}
-      <div className="hero-logo-container">
-        <span className="logo-text-large">собе.<span className="logo-gradient">ru</span></span>
-      </div>
+        <div className="hero-logo-container">
+          <span className="logo-text-large">sobir<span className="logo-ai">ai</span></span>
+        </div>
 
       {/* Hero Section */}
       <section className="hero" id="home">
@@ -518,7 +518,7 @@ function App() {
             </div>
           </div>
           <div className="footer-logo">
-            <span className="logo-text-large">SOBIRAI</span>
+            <span className="logo-text-large">sobir<span className="logo-ai">ai</span></span>
           </div>
         </div>
       </footer>

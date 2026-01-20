@@ -1,3 +1,4 @@
+/* stylelint-disable at-rule-no-unknown */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -58,6 +59,7 @@
     @apply bg-background text-foreground;
   }
 }
+/* stylelint-enable at-rule-no-unknown */
 
 /* Reset and Base Styles */
 * {

@@ -1530,9 +1530,118 @@ img {
         font-size: 80px;
     }
 
-    .what-we-offer,
-    .problems,
+    .partners-carousel-wrapper {
+        --logo-width: 220px;
+    }
+
+    .partner-logo-item {
+        height: 64px;
+        border-radius: 16px;
+    }
+
+    .how-it-works .section-title {
+        padding-left: 0;
+        text-align: center;
+    }
+
+    .what-we-offer {
+        padding: 60px 0 0;
+    }
+
+    .what-we-offer-header {
+        align-items: center;
+        text-align: center;
+    }
+
+    .what-we-offer-title-wrapper {
+        padding-left: 0;
+        text-align: center;
+    }
+
+    .what-we-offer-icon {
+        width: 200px;
+    }
+
+    .offer-card {
+        padding: 24px;
+        border-radius: 28px;
+    }
+
+    .problems {
+        padding: 60px 0;
+    }
+
+    .problem-card {
+        padding: 12px 0;
+    }
+
     .project-package {
+        padding: 60px 0;
+    }
+
+    .package-image {
+        height: 220px;
+        border-radius: 28px;
+    }
+
+    .adaptation {
+        padding: 60px 0;
+    }
+
+    .adaptation-steps {
+        gap: 20px;
+    }
+
+    .step-card {
+        padding: 24px;
+        border-radius: 32px;
+    }
+
+    .step-card h3 {
+        font-size: 36px;
+    }
+
+    .contact-form-section {
+        padding: 60px 0;
+    }
+
+    .contact-form-card {
+        width: 100%;
+    }
+
+    .reviews {
+        padding: 60px 0;
+    }
+
+    .reviews-grid {
+        gap: 20px;
+    }
+
+    .faq {
+        padding: 60px 0;
+    }
+
+    .faq-question {
+        padding: 16px 20px;
+    }
+
+    .footer {
+        padding: 60px 0 0;
+    }
+
+    .footer-content {
+        margin-bottom: 40px;
+    }
+
+    .footer-links {
+        gap: 24px;
+    }
+
+    .footer-column p {
+        font-size: 20px;
+    }
+
+    .what-we-offer {
         border-radius: 60px 60px 0 0;
     }
 
@@ -1650,6 +1759,56 @@ img {
 
     .contact-form-textarea {
         height: 140px;
+    }
+
+    .partners-carousel-wrapper {
+        --logo-width: 180px;
+        --logo-gap: 12px;
+    }
+
+    .partner-logo-item {
+        height: 56px;
+        border-radius: 14px;
+    }
+
+    .what-we-offer-icon {
+        width: 160px;
+    }
+
+    .offer-card,
+    .package-card {
+        padding: 20px;
+        border-radius: 24px;
+    }
+
+    .problem-card {
+        padding: 10px 0;
+    }
+
+    .package-image {
+        height: 180px;
+        border-radius: 24px;
+    }
+
+    .step-card {
+        padding: 20px;
+        border-radius: 28px;
+    }
+
+    .step-card h3 {
+        font-size: 32px;
+    }
+
+    .faq-item {
+        border-radius: 28px;
+    }
+
+    .faq-question {
+        padding: 14px 16px;
+    }
+
+    .contact-form-input {
+        height: 48px;
     }
 }
 

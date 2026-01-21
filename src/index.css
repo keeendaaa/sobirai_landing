@@ -1344,6 +1344,15 @@ img {
     line-height: normal;
 }
 
+.footer-column a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.footer-column a:hover {
+    text-decoration: underline;
+}
+
 .footer-logo {
     width: 100%;
     margin-left: 0;

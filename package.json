@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+    "build:vercel": "rm -rf dist && cp -R deployed dist",
     "preview": "vite preview"
   },
   "dependencies": {

@@ -7,30 +7,25 @@
 | ![SobirAI desktop section](docs/mockups/2.png) | ![SobirAI product section](docs/mockups/3.png) |
 | ![SobirAI workflow section](docs/mockups/4.png) | ![SobirAI final section](docs/mockups/5.png) |
 
-> Production landing page for SobirAI, an AI platform that helps manufacturing teams prepare drawings, specifications, and 3D models for custom products.
+> 🚀 Лендинг SobirAI — AI-платформы для производственных компаний, которая помогает быстрее готовить чертежи, спецификации и 3D-модели для изделий под заказ.
 
-## Overview
+## О проекте
 
-SobirAI Landing is a Vite + React single-page website for presenting the SobirAI product, collecting leads, and explaining the workflow from customer request to engineering documentation.
+SobirAI Landing — это одностраничный продуктовый сайт для презентации AI-платформы SobirAI. Лендинг объясняет ценность продукта для малого и среднего производственного бизнеса: сокращение ручной подготовки технической документации, ускорение обработки заявок и упрощение перехода от клиентского запроса к инженерным артефактам.
 
-The repository contains both the editable source project and the exact production build currently used for Vercel deployment.
+С технической точки зрения проект построен как React-приложение на Vite с Tailwind CSS, анимациями, локальными шрифтами и статическими медиа-ассетами. Репозиторий хранит редактируемую кодовую базу, исходные изображения и отдельную папку с точной production-сборкой, которая используется для деплоя на Vercel.
 
-## Highlights
+## Что внутри
 
-- AI product positioning for manufacturing and custom production workflows.
-- Animated landing page built with React, Tailwind CSS, GSAP, and Motion.
-- Local TT Travels and Doloman fonts bundled in `public/fonts`.
-- Product visuals, 3D model previews, drawings, BOM imagery, and video assets.
-- Vercel-ready deployment using the exact live static build from `deployed/`.
+- 🤖 Продуктовый лендинг для AI-сервиса в сфере производства и кастомных изделий.
+- 🧩 Компонентная React-структура: страницы, навигация, UI-компоненты, хуки и утилиты.
+- 🎨 Tailwind CSS, кастомные CSS-секции, локальные шрифты TT Travels и Doloman.
+- ✨ Анимации и интерактивность через GSAP, ScrollTrigger и Motion.
+- 🎬 Оптимизированное web-safe MP4-видео для корректного воспроизведения на Vercel и в браузерах.
+- 🖼️ Изображения, SVG, мокапы, 3D-превью и production-assets, разложенные по папкам.
+- ▲ Vercel-конфигурация с деплоем точной live-сборки из `deployed/`.
 
-## Preview
-
-| Product | Workflow |
-| --- | --- |
-| ![3D model preview](assets/8430bc40573f46f11031d3bc2f5f7748a94b3246.png) | ![Specification preview](assets/dc86915345f0f05208c63617bc8fa527d67024e1.png) |
-| ![Drawing preview](assets/2026-01-16-10.09.28.jpg) | ![BOM preview](assets/2026-01-16-10.08.56.jpg) |
-
-## Tech Stack
+## Технический стек
 
 - React 18
 - Vite
@@ -38,72 +33,80 @@ The repository contains both the editable source project and the exact productio
 - GSAP + ScrollTrigger
 - Motion
 - Radix UI primitives
+- TypeScript в отдельных UI/helpers-файлах
 - Vercel
 
-## Project Structure
+## Структура проекта
 
 ```text
 .
-├── src/                 # React source code, components, styles, utilities
-├── assets/              # Source images, SVG files, and video used by Vite
-├── public/              # Static files copied by Vite, including fonts
-├── deployed/            # Exact live static build used by Vercel
-├── index.html           # Vite HTML template
-├── package.json         # Scripts and dependencies
-├── tailwind.config.js   # Tailwind configuration
-├── vite.config.js       # Vite configuration
-└── vercel.json          # Vercel build and routing configuration
+├── src/                 # React-код, компоненты, стили, хуки и утилиты
+├── assets/              # Исходные изображения, SVG и видео для Vite-сборки
+├── assets/raw/          # Дополнительные исходные изображения и legacy-медиа
+├── public/              # Статические файлы, включая локальные шрифты
+├── deployed/            # Точная live-сборка, используемая Vercel
+├── docs/mockups/        # Мокапы сайта для README
+├── index.html           # HTML-шаблон Vite
+├── package.json         # Скрипты и зависимости
+├── tailwind.config.js   # Конфигурация Tailwind CSS
+├── vite.config.js       # Конфигурация Vite
+└── vercel.json          # Настройки сборки и роутинга для Vercel
 ```
 
-## Getting Started
+## Локальный запуск
 
-Install dependencies:
+Установить зависимости:
 
 ```bash
 npm install
 ```
 
-Start the development server:
+Запустить dev-сервер:
 
 ```bash
 npm run dev
 ```
 
-Open `http://localhost:5173`.
+Открыть сайт:
 
-## Build
+```text
+http://localhost:5173
+```
 
-Build from source:
+## Сборка
+
+Собрать проект из исходников:
 
 ```bash
 npm run build
 ```
 
-Preview the source build:
+Локально посмотреть production-сборку из исходников:
 
 ```bash
 npm run preview
 ```
 
-## Vercel Deployment
+## Деплой на Vercel
 
-Vercel is configured to deploy the exact live build from `deployed/`:
+Для production-деплоя Vercel использует команду:
 
 ```bash
 npm run build:vercel
 ```
 
-This copies `deployed/` into `dist/`, and Vercel serves `dist/` as the production output.
+Она копирует `deployed/` в `dist/`, после чего Vercel публикует `dist/` как финальный статический сайт.
 
-This setup preserves the current production landing page exactly while keeping the editable source code in the same repository.
+Такой режим нужен потому, что `deployed/` содержит точную live-версию лендинга, перенесённую с предыдущего VPS. Это позволяет безопасно мигрировать сайт на Vercel, не теряя текущий production-визуал, и параллельно сохранять редактируемую React/Vite-кодовую базу в `src/`.
 
-## Notes
+## Важные заметки
 
-- `src/` contains the editable React codebase.
-- `deployed/` contains the exact live build that matches the previous VPS deployment.
-- `dist/` is generated locally and is intentionally ignored by Git.
-- Large media files are part of the landing experience and are committed intentionally.
+- `src/` — редактируемая кодовая база проекта.
+- `deployed/` — точная production-сборка, которую сейчас деплоит Vercel.
+- `dist/` генерируется локально и не хранится в Git.
+- Крупные медиафайлы закоммичены намеренно, потому что они являются частью лендинга.
+- Видео перекодировано в `H.264/avc1 + AAC`, чтобы корректно работать в браузерах и на Vercel.
 
-## Repository
+## Репозиторий
 
 GitHub: [keeendaaa/sobirai_landing](https://github.com/keeendaaa/sobirai_landing)

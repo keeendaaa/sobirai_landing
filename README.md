@@ -1,8 +1,13 @@
 # SobirAI Landing
 
-> Production landing page for SobirAI, an AI platform that helps manufacturing teams prepare drawings, specifications, and 3D models for custom products.
+![SobirAI landing mockup](docs/mockups/1.png)
 
-![SobirAI hero preview](assets/8b012d4ce7e9c00b24c734d0e09e0948a0461c8e.png)
+| | |
+| --- | --- |
+| ![SobirAI desktop section](docs/mockups/2.png) | ![SobirAI product section](docs/mockups/3.png) |
+| ![SobirAI workflow section](docs/mockups/4.png) | ![SobirAI final section](docs/mockups/5.png) |
+
+> Production landing page for SobirAI, an AI platform that helps manufacturing teams prepare drawings, specifications, and 3D models for custom products.
 
 ## Overview
 
